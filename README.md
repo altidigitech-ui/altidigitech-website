@@ -1,1 +1,0 @@
-# altidigitech-website
