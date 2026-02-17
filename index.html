@@ -299,6 +299,120 @@
             font-weight: 300;
         }
 
+        /* ── PRICING ── */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .pricing-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            position: relative;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+        }
+
+        .pricing-card--featured {
+            border-color: var(--accent);
+        }
+
+        .pricing-card--featured:hover {
+            border-color: var(--accent);
+        }
+
+        .pricing-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 1.25rem;
+        }
+
+        .pricing-badge--featured {
+            color: var(--accent);
+        }
+
+        .pricing-name {
+            font-family: var(--sans);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.75rem;
+        }
+
+        .pricing-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-price {
+            font-family: var(--serif);
+            font-size: 2.8rem;
+            color: var(--text);
+            line-height: 1;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+        }
+
+        .pricing-from {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            font-weight: 300;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-features li {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            padding: 0.45rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .pricing-timeline {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .pricing-cta {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+
         /* ── RÉALISATIONS ── */
         .projects-grid {
             display: grid;
@@ -735,6 +849,13 @@
         }
 
         /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 padding: 1rem 1.25rem;
@@ -775,6 +896,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
             .footer-top {
                 flex-direction: column;
                 gap: 2rem;
@@ -808,6 +933,7 @@
         <a href="#" class="logo">Alti<span>.</span>DigiTech</a>
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
+            <li><a href="#offres">Offres</a></li>
             <li><a href="#realisations">Réalisations</a></li>
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -854,6 +980,68 @@
                 <div class="service-icon">📊</div>
                 <h3>Conseil & Stratégie Digitale</h3>
                 <p>Accompagnement dans votre transformation numérique. Audit, stratégie et mise en œuvre de solutions sur mesure.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- OFFRES -->
+    <section id="offres" class="fade-in">
+        <p class="section-label">Offres</p>
+        <h2 class="section-title">Des solutions claires, des prix transparents</h2>
+        <p class="section-desc">Chaque offre inclut le développement, le déploiement en production et un suivi post-livraison. Pas de surprise.</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-badge">Porte d'entrée</div>
+                <h3 class="pricing-name">Audit & Stratégie Technique</h3>
+                <p class="pricing-desc">Analyse complète de votre stack, architecture ou projet existant. Vous repartez avec un plan d'action concret et priorisé.</p>
+                <div class="pricing-price">990€<span class="pricing-from">à partir de</span></div>
+                <ul class="pricing-features">
+                    <li>Audit de l'architecture existante</li>
+                    <li>Identification des points faibles</li>
+                    <li>Recommandations techniques priorisées</li>
+                    <li>Plan d'action détaillé (livrable PDF)</li>
+                    <li>Call de restitution 1h</li>
+                </ul>
+                <div class="pricing-timeline">⏱ Livraison : 3-5 jours</div>
+                <a href="https://cal.com/altidigitech" target="_blank" rel="noopener" class="btn-secondary pricing-cta">Prendre rendez-vous →</a>
+            </div>
+
+            <div class="pricing-card pricing-card--featured">
+                <div class="pricing-badge pricing-badge--featured">Populaire</div>
+                <h3 class="pricing-name">API / Intégration IA</h3>
+                <p class="pricing-desc">API REST sur mesure, intégration de LLM dans vos workflows, automatisation de processus métier. Résultats mesurables.</p>
+                <div class="pricing-price">2 500€<span class="pricing-from">à partir de</span></div>
+                <ul class="pricing-features">
+                    <li>API REST performante (FastAPI)</li>
+                    <li>Intégration LLM (Claude, GPT)</li>
+                    <li>Automatisation de workflows</li>
+                    <li>Tests & documentation</li>
+                    <li>Déploiement production</li>
+                    <li>30 jours de support inclus</li>
+                </ul>
+                <div class="pricing-timeline">⏱ Livraison : 1-2 semaines</div>
+                <a href="https://cal.com/altidigitech" target="_blank" rel="noopener" class="btn-primary pricing-cta">Prendre rendez-vous →</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-badge">Clé en main</div>
+                <h3 class="pricing-name">MVP SaaS Complet</h3>
+                <p class="pricing-desc">De l'idée au produit live. Backend, frontend, authentification, paiement, déploiement, monitoring. Prêt à accueillir vos utilisateurs.</p>
+                <div class="pricing-price">4 900€<span class="pricing-from">à partir de</span></div>
+                <ul class="pricing-features">
+                    <li>Architecture complète (backend + frontend)</li>
+                    <li>Authentification & gestion utilisateurs</li>
+                    <li>Intégration paiement (Stripe)</li>
+                    <li>Dashboard & interface utilisateur</li>
+                    <li>Déploiement production (Railway + Vercel)</li>
+                    <li>Monitoring & alertes</li>
+                    <li>60 jours de support inclus</li>
+                </ul>
+                <div class="pricing-timeline">⏱ Livraison : 2-4 semaines</div>
+                <a href="https://cal.com/altidigitech" target="_blank" rel="noopener" class="btn-secondary pricing-cta">Prendre rendez-vous →</a>
             </div>
         </div>
     </section>
