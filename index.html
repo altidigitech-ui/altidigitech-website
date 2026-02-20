@@ -1259,8 +1259,17 @@
         </div>
     </footer>
 
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:#111111;border-top:1px solid #1e1e1e;padding:14px 24px;font-family:var(--sans);font-size:13px;color:#888888;">
+        <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+            <span>Ce site utilise uniquement des cookies essentiels. <a href="https://plausible.io" target="_blank" rel="noopener" style="color:#c8ff00;text-decoration:none;">Plausible Analytics</a> est utilisé sans cookies. <a href="#mentions" style="color:#888888;text-decoration:underline;">En savoir plus</a></span>
+            <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('alti_cookie_ok','1');" style="background:#c8ff00;color:#0a0a0a;border:none;padding:6px 18px;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;">Compris</button>
+        </div>
+    </div>
+
     <!-- Intersection Observer for fade-in -->
     <script>
+        if(!localStorage.getItem('alti_cookie_ok')){document.getElementById('cookieBanner').style.display='block';}
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
